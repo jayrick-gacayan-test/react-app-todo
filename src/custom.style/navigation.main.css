@@ -1,0 +1,60 @@
+.navbar-custom{
+	overflow: hidden;
+}
+
+.navbar-fixed{
+    position: fixed;
+    top: 0;
+}
+
+
+
+#main-navigation{
+	padding-top: 28px;
+	padding-bottom: 28px;
+    
+    transition: padding-top, padding-bottom 0.3s ease-in;
+    -webkit-transition: padding-top, padding-bottom 0.3s ease-in;
+    -moz-transition: padding-top, padding-bottom 0.3s ease-in;
+    -o-transition: padding-top, padding-bottom 0.3s ease-in;
+	
+}
+
+.navbar .navbar-item{ 
+	padding: 15px; 
+	position: relative;
+	float: left;
+}
+
+.navbar .navbar-item > .navbar-link{ 
+	font-size: 16px;
+	position: relative;
+	display: block;
+}
+
+.navbar .navbar-item.active > .navbar-link::before{
+	width: 100%;
+}
+
+.navbar .navbar-item > .navbar-link.active::before{
+	width: 100%;
+}
+
+.navbar .navbar-item > .navbar-link::before{
+	content : "";
+	width: 0%;
+	background-color: skyblue;
+	border-radius: 1rem;
+	height: 0.3rem;
+	position: absolute;
+	bottom: -14px;
+
+	transition: width 0.5s ease-in-out;
+	-webkit-transition: width 0.5s ease-in-out;
+	-moz-transition: width 0.5s ease-in-out;
+	-o-transition: width 0.5s ease-in-out;
+}
+
+.navbar .navbar-item > .navbar-link:hover::before{
+	width: 100%;
+}

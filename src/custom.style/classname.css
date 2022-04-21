@@ -1,0 +1,116 @@
+/* for grid layouts */
+.container-fluid{
+    width: 100%;
+}
+
+.container, .container-fluid{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row{
+    width: 100%
+}
+
+.container-fluid, .container, .row{
+    position: relative;
+    margin: auto;
+}
+
+.container::after, .row::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.col-1{ width: 8.333333%; }
+.col-2{ width: 16.666667%; }
+.col-3{ width: 25%; }
+.col-4{ width: 33.333333%; }
+.col-5{ width: 41.666667%; }
+.col-6{ width: 50%; }
+.col-9{ width: 75%; }
+.col-12{ width: 100%; }
+
+.col-1, .col-2, .col-3, .col-4,
+.col-5, .col-6, .col-9, .col-12
+{
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+.section{
+    display: block;
+}
+
+/* for text styles */
+.text-center{
+    text-align: center;
+}
+
+.font-weight-bold{
+    font-weight: 700;
+}
+
+/* text color */
+.grey-text{ color: #9e9e9e !important; }
+.white-text{ color: #ffffff !important; }
+.text-primary{ color: #008cad !important; }
+
+/* for background */
+
+/* for position */
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+/* box space */
+/* margins */
+.margin-big-top{ margin-top : 200px; }
+.mb-5, .my-5{ margin-bottom: 3rem !important; }
+.mb-2, .my-2{ margin-bottom: 0.5rem !important; }
+.mt-5, .my-5{ margin-top: 3rem !important; }
+.mt-2, .my-2{ margin-top: 0.5rem !important; }
+
+.my-2{
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.my-5{
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+/* padding */
+.pb-5, .py-5{ padding-bottom: 3rem !important; }
+.pb-2, .py-2{ padding-bottom: 0.5rem !important; }
+.pt-5, .py-5{ padding-top: 3rem !important; }
+.pt-2, .py-2{ padding-top: 0.5rem !important; }
+
+.py-2{
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.py-5{
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+.lead{
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+
+.font-size-3{
+    font-size: 2rem;
+}
