@@ -11,7 +11,10 @@ class TodoList extends Component{
                         this.props.todos.map(
                             (todo) => {
                                 <TodoItem key={ todo.id }
-                                    todo={ todo }/>
+                                    todo={ todo }
+                                    handleTodoTask={ this.props.handleTodoTask }
+                                    deleteTodo={ this.props.deleteTodo }
+                                    editTodo={ this.props.editTodo } />
                             }
                         )
                     }
