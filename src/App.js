@@ -9,7 +9,7 @@ import HomePage from './components/pages/HomePage';
 import AboutPage from './components/pages/AboutPage';
 import ContactusPage from './components/pages/ContactusPage';
 import ErrorPage from './components/error/ErrorPage';
-import TodoContainer from './components/Todo/functionBased/TodoContainer';
+import TodoContainer from './components/Todo/classBased/TodoContainer';
 
 // layouts
 import NavigationMain from './components/layout/NavigationMain';
