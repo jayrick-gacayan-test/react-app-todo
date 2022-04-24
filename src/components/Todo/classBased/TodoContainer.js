@@ -74,15 +74,15 @@ class TodoContainer extends Component{
     }
 
     editTodo = (todo) => {
-        this.setState({
-            currentTodo : todo,
-            isEditing : true
-        });
-        
+        this.setState(
+            (prevState) => ({
+                currentTodo : todo,
+                isEditing: !prevState.isEditing
+            })
+        );
     }
 
     updateTodo = (todoData) => {
-        console.log(todoData.id);
         this.setState({
             todos : this.state.todos.map(
                 (todo) => {
@@ -96,7 +96,6 @@ class TodoContainer extends Component{
     } 
 
     render(){
-        console.log(this.state.currentTodo);
         return (
             <div className="container margin-big-top">
                 <h1 className="text-center">This is the Todo page.</h1>

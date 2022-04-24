@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 class TodoItem extends Component{
     
-    
     render(){
         return(
             <li key={ this.props.todo.id }
@@ -13,9 +12,13 @@ class TodoItem extends Component{
             <span className={ this.props.todo.completed ? "todo-completed" : ""} 
                 style={{ padding: "8px", display: "inline-block" }}>{ "Title : " + this.props.todo.title}</span>
             <button className="style-button-1 float-right"
-                onClick={ () => this.props.deleteTodo(this.props.todo.id) }>Delete</button>
+                onClick={ 
+                        () => this.props.deleteTodo(this.props.todo.id) 
+                    }>Delete</button>
             <button className="style-button-1 float-right"
-                onClick={ () => this.props.editTodo(this.props.todo) }>Edit</button>
+                onClick={ 
+                    () => this.props.editTodo(this.props.todo) 
+                }>Edit</button>
         </li>
         );
     }
