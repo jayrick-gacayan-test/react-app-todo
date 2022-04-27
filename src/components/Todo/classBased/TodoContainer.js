@@ -96,19 +96,21 @@ class TodoContainer extends Component{
     } 
 
     render(){
+        const { isEditing, currentTodo, todos } = this.state; //destructuring properties of state.
+
         return (
             <div className="container margin-big-top">
                 <h1 className="text-center">This is the Todo page.</h1>
                 <div>
-                    <p className="lead font-weight-bold font-size-3 text-center">{ !this.state.isEditing ? "Add" : "Edit" } todo</p>
+                    <p className="lead font-weight-bold font-size-3 text-center">{ !isEditing ? "Add" : "Edit" } todo</p>
                     {   
-                        <TodoForm isEditing={ this.state.isEditing } 
-                            todoAction={ !this.state.isEditing ? this.addTodo : this.updateTodo }
-                            currentTodo={ this.state.currentTodo } /> 
+                        <TodoForm isEditing={ isEditing } 
+                            todoAction={ !isEditing ? this.addTodo : this.updateTodo }
+                            currentTodo={ currentTodo } /> 
                     }
                 </div>
                 <ul>
-                    <TodoList todos={ this.state.todos } 
+                    <TodoList todos={ todos } 
                         deleteTodo={ this.deleteTodo }
                         editTodo={ this.editTodo }
                         handleTodoTask={ this.handleTodoTask } 

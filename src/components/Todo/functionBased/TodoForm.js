@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 const TodoForm = (props) => {
     
-    const actionText = !props.isEditing ? "Add" : "Edit";
+    const { isEditing, currentTodo, todoAction } = props;
+    const actionText = !isEditing ? "Add" : "Edit";
     const initialState = { id: null, title: "", completed: false };
 
     const [ todo, setTodo ] = useState(initialState);
@@ -15,8 +16,9 @@ const TodoForm = (props) => {
 
     useEffect(
         () => {
-            setTodo(props.currentTodo)
-        }, [props]);
+            setTodo(currentTodo)
+        }, [props]
+    );
 
     return (
         <form className="form-todo-container" 
@@ -25,7 +27,7 @@ const TodoForm = (props) => {
                         event.preventDefault();
                         if(!todo.title) return;
 
-                        props.todoAction(todo);
+                        todoAction(todo);
 
                         setTodo(initialState);
                     }

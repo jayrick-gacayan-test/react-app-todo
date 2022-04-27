@@ -2,27 +2,29 @@ import React, { useEffect, useState } from 'react';
 
 const TodoItem = (props) => {
     
-
+    const { todo, handleTodoTask, deleteTodo, editTodo } = props; // destructuring props
+    const { id, title } = todo; // destructuring todo
+    
     const [ completed, setCompleted ] = useState(false);
 
     useEffect(
         () => {
-            setCompleted(props.todo.completed)
+            setCompleted(todo.completed)
         }, [props]);
 
     return (
-        <li key={ props.todo.id }
+        <li key={ id }
                 className="todo-list-item">
             <input type="checkbox" 
                     className="checkbox"
                     checked={ completed }
-                    onChange={ () => props.handleTodoTask(props.todo.id) }/>
+                    onChange={ () => handleTodoTask(id) }/>
             <span className={ completed ? "todo-completed" : ""} 
-                style={{ padding: "8px", display: "inline-block" }}>{ "Title : " + props.todo.title}</span>
+                style={{ padding: "8px", display: "inline-block" }}>{ "Title : " + title}</span>
             <button className="style-button-1 float-right"
-                onClick={ () => props.deleteTodo(props.todo.id) }>Delete</button>
+                onClick={ () => deleteTodo(id) }>Delete</button>
             <button className="style-button-1 float-right"
-                onClick={ () => props.editTodo(props.todo) }>Edit</button>
+                onClick={ () => editTodo(todo) }>Edit</button>
         </li>
     );
 }

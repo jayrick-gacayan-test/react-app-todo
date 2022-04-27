@@ -10,7 +10,7 @@ class TodoForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            currentTodo: props.currentTodo,
+            currentTodo: this.initialState,
             isEditing: false
         }
 
@@ -30,7 +30,6 @@ class TodoForm extends Component{
     
     handleInputChange = (event) => {
         const { name, value } = event.target;
-        console.log(this.state.currentTodo);
         this.setState({
                 currentTodo : {
                     ...this.state.currentTodo, [name]: value
@@ -39,14 +38,15 @@ class TodoForm extends Component{
     }
 
     render(){
+        const { currentTodo } = this.state; // destructuring state.
         return(
             <form className="form-todo-container" 
                 onSubmit={ 
                     (event) => {
                         event.preventDefault();
-                        if(!this.state.currentTodo.title) return;
+                        if(!currentTodo.title) return;
 
-                        this.props.todoAction(this.state.currentTodo);
+                        this.props.todoAction(currentTodo);
 
                         this.setState({
                             currentTodo : this.initialState,
@@ -59,7 +59,7 @@ class TodoForm extends Component{
                     id="title"
                     name="title" 
                     className="input-todo"
-                    value={ this.state.currentTodo.title }
+                    value={ currentTodo.title }
                     placeholder="Todo..."
                     onChange={ this.handleInputChange } />
             <button className="style-button-1"

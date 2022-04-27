@@ -3,15 +3,16 @@ import TodoItem from './TodoItem';
 class TodoList extends Component{
     
     render(){
+        const { todos, handleTodoTask, deleteTodo, editTodo } = this.props;
         return(
-            this.props.todos.map(
+            todos.map(
                 (todo) => {
                     return (
                         <TodoItem key={ todo.id }
                             todo={ todo }
-                            handleTodoTask={ this.props.handleTodoTask }
-                            deleteTodo={ this.props.deleteTodo }
-                            editTodo={ this.props.editTodo }/>
+                            handleTodoTask={ handleTodoTask }
+                            deleteTodo={ deleteTodo }
+                            editTodo={ editTodo }/>
                     )        
                 }
             )
