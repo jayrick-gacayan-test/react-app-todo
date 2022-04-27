@@ -12,23 +12,7 @@ const TodoContainer = () => {
         completed : false
     };
 
-    const todosData = [
-        {
-            id: 1,
-            title: "Todo 1",
-            completed: false
-        },
-        {
-            id: 2,
-            title: "Todo 2",
-            completed: false
-        },
-        {
-            id: 3,
-            title: "Todo 3",
-            completed: false
-        }
-    ]
+    const todosData = [];
 
     const [ editing, setEditing ] = useState(false); // checks if editing is enable
     const [ currentTodo, setCurrentTodo ] = useState(initialState); // getting the current todo
@@ -36,7 +20,7 @@ const TodoContainer = () => {
 
     /* add method for todo */
     const addTodo = (todo) => {
-        todo.id = todos[todos.length - 1].id + 1;
+        todo.id = todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
         setTodos([ ...todos, todo]); // combined two array values
     }
 
@@ -96,10 +80,14 @@ const TodoContainer = () => {
                 />
             </div>
             <ul>
-                <TodoList todos={ todos } 
+                {
+                    todos.length > 0 ?
+                    <TodoList todos={ todos } 
                     deleteTodo={ deleteTodo }
                     editTodo={ editTodo }
-                    handleTodoTask={ handleTodoTask } />
+                    handleTodoTask={ handleTodoTask } 
+                    /> : <li>No todo task yet.</li>
+                }
             </ul>
         </div>
     );

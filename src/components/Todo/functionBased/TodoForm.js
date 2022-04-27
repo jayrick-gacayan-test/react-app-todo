@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const TodoForm = (props) => {
     
-    const { isEditing, currentTodo, todoAction } = props;
+    const { isEditing, todoAction } = props;
     const actionText = !isEditing ? "Add" : "Edit";
     const initialState = { id: null, title: "", completed: false };
 
@@ -16,7 +16,7 @@ const TodoForm = (props) => {
 
     useEffect(
         () => {
-            setTodo(currentTodo)
+            setTodo(props.currentTodo)
         }, [props]
     );
 

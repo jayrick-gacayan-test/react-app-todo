@@ -9,7 +9,7 @@ const TodoItem = (props) => {
 
     useEffect(
         () => {
-            setCompleted(todo.completed)
+            setCompleted(props.todo.completed)
         }, [props]);
 
     return (

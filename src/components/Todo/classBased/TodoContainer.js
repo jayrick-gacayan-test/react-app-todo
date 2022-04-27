@@ -14,23 +14,7 @@ class TodoContainer extends Component{
     }
 
     state = {
-        todos: [
-            {
-                id: 1,
-                title: "Todo 1",
-                completed: false
-            },
-            {
-                id: 2,
-                title: "Todo 2",
-                completed: false
-            },
-            {
-                id: 3,
-                title: "Todo 3",
-                completed: false
-            }
-        ],
+        todos: [],
         isEditing: false,
         currentTodo: this.initialState
     };
@@ -66,7 +50,8 @@ class TodoContainer extends Component{
     }
 
     addTodo = (todo) => {
-        todo.id = this.state.todos[this.state.todos.length - 1].id + 1;
+        todo.id = this.state.todos.length === 0 ? 1 : 
+                this.state.todos[this.state.todos.length - 1].id + 1;
         this.setState({
             todos: [...this.state.todos, todo],
             isEditing: false
@@ -110,11 +95,14 @@ class TodoContainer extends Component{
                     }
                 </div>
                 <ul>
-                    <TodoList todos={ todos } 
+                    {
+                        todos.length > 0 ?
+                        <TodoList todos={ todos } 
                         deleteTodo={ this.deleteTodo }
                         editTodo={ this.editTodo }
                         handleTodoTask={ this.handleTodoTask } 
-                        />
+                        /> : <li>No todo task yet.</li>
+                    }
                 </ul>
             </div>
         );
